@@ -22,3 +22,5 @@ go.work
 
 /api-test
 .env
+
+.idea
