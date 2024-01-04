@@ -13,21 +13,21 @@ func main() {
 	client := termiigo.NewClient(os.Getenv("TERMII_API_KEY"), nil)
 
 	// GetSenderId
-	//senderIdResponse, err := client.SenderID.GetSenderId()
-	//if err != nil {
-	//	fmt.Println(err)
-	//	return
-	//}
-	//dataConverted, err := json.Marshal(senderIdResponse)
-	//if err != nil {
-	//	fmt.Println(err)
-	//	return
-	//}
-	//log.Printf("Response : %+v", string(dataConverted))
+	senderIdResponse, err := client.SenderIDServiceR.GetSenderId()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	dataConverted, err := json.Marshal(senderIdResponse)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	log.Printf("Response : %+v", string(dataConverted))
 
 	// RequestSenderId
 	requestBody := termiigo.RequestSenderIdRequest{
-		SenderID: "Myadmisionlink",
+		SenderID: "Myadmission",
 		Company:  "Myadmissionlink Educational Consult Limited",
 		Usecase:  "Hi user, your myadmissionlink verification code is ",
 	}
