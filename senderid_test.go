@@ -10,7 +10,7 @@ import (
 	"testing"
 )
 
-const apiKey = "ACME Key"
+const apiKey = "TL2yxYKBgewEkKMNWlcIGVkkfAITCqLHc8VE4zTEcdpZGwGzC7lhwHn3I6AYjc"
 
 //var client = NewClient(os.Getenv("TERMII_API_KEY"), nil)
 

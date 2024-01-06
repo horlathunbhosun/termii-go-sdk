@@ -13,8 +13,7 @@ type SenderIDService termiiServices
 @params: apiKey
 */
 func (senderIDr *SenderIDService) GetSenderId() (map[string]interface{}, error) {
-	var resp map[string]interface{}
-	err, resp := senderIDr.client.MakePostRequest(http.MethodGet, nil, fmt.Sprintf("sender-id?api_key=%s", senderIDr.client.apiKey))
+	err, resp := senderIDr.client.MakeRequest(http.MethodGet, nil, fmt.Sprintf("sender-id?api_key=%s", senderIDr.client.apiKey))
 	if err != nil {
 		return nil, err
 	}
@@ -34,14 +33,13 @@ type RequestSenderIdRequest struct {
 
 // RequestSenderId sends a request to the "sender-id/request" endpoint.
 func (senderIDr *SenderIDService) RequestSenderId(senderIdRequest RequestSenderIdRequest) (map[string]interface{}, error) {
-	// Initialize the response struct
-	var responseMap map[string]interface{}
+
 	// Set the endpoint
 	endPoint := "sender-id/request"
 	// Set API key in the request
 	senderIdRequest.APIKey = senderIDr.client.apiKey
 	// Send the HTTP request
-	err, responseMap := senderIDr.client.MakePostRequest(http.MethodPost, senderIdRequest, endPoint)
+	err, responseMap := senderIDr.client.MakeRequest(http.MethodPost, senderIdRequest, endPoint)
 	if err != nil {
 		return nil, err
 	}
