@@ -25,17 +25,17 @@ func main() {
 	//}
 	//log.Printf("Response : %+v", string(dataConverted))
 	//
-	//phoneBooksResponse, err := client.CampaignServiceR.GetPhoneBooks()
-	//if err != nil {
-	//	fmt.Println(err)
-	//	return
-	//}
-	//dataConvertedPhonebooks, err := json.Marshal(phoneBooksResponse)
-	//if err != nil {
-	//	fmt.Println(err)
-	//	return
-	//}
-	//log.Printf("Response phonebook : %+v", string(dataConvertedPhonebooks))
+	phoneBooksResponse, err := client.CampaignServiceR.GetPhoneBooks()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	dataConvertedPhonebooks, err := json.Marshal(phoneBooksResponse)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	log.Printf("Response phonebook : %+v", string(dataConvertedPhonebooks))
 
 	// RequestSenderId
 	//requestBody := termiigo.RequestSenderIdRequest{
@@ -91,8 +91,8 @@ func main() {
 	//log.Printf("Response : %+v", string(dataConvertedRequestSendID))
 
 	payload := termiigo.PhoneBookRequest{
-		PhonebookID:   "0f0b6c51-cf9e-4210-bacd-0ed13e2e58dc",
-		PhonebookName: "MyadmissionLink ContactList",
+		PhonebookID:   "a3ec9a79-7c04-47b1-8d80-0dadeb14ca1b",
+		PhonebookName: "MyadmissionLink",
 	}
 	//updatePhoneBook
 	phoneBook, err := client.CampaignServiceR.UpdatePhoneBook(payload)
