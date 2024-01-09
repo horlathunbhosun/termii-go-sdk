@@ -51,7 +51,6 @@ func (campaignService *CampaignService) CreatePhoneBook(request PhoneBookRequest
 //Request Type : PATCH
 
 func (campaignService *CampaignService) UpdatePhoneBook(request PhoneBookRequest) (map[string]interface{}, error) {
-
 	// Set the endpoint
 	endPoint := fmt.Sprintf("phonebooks/%s", request.PhonebookID)
 

@@ -39,9 +39,7 @@ func (messagingService *MessagingService) SendMessage(request interface{}) (map[
 	//check for the type to send before sending it
 	switch req := request.(type) {
 	case SendMessageRequest:
-
 		req.APIKey = messagingService.client.apiKey
-
 		// Send the HTTP request
 		err, responseMap := messagingService.client.MakeRequest(http.MethodPost, req, endPoint)
 		if err != nil {
