@@ -90,23 +90,23 @@ func main() {
 	//}
 	//log.Printf("Response : %+v", string(dataConvertedRequestSendID))
 
-	payload := termiigo.PhoneBookRequest{
-		PhonebookID:   "a3ec9a79-7c04-47b1-8d80-0dadeb14ca1b",
-		PhonebookName: "MyadmissionLink",
-	}
-	//updatePhoneBook
-	phoneBook, err := client.CampaignServiceR.UpdatePhoneBook(payload)
-
-	fmt.Println(payload)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	dataConvertedPhoneBook, err := json.Marshal(phoneBook)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	log.Printf("Response phonebook: %+v", string(dataConvertedPhoneBook))
+	//payload := termiigo.PhoneBookRequest{
+	//	PhonebookID:   "a3ec9a79-7c04-47b1-8d80-0dadeb14ca1b",
+	//	PhonebookName: "MyadmissionLink",
+	//}
+	////updatePhoneBook
+	//phoneBook, err := client.CampaignServiceR.UpdatePhoneBook(payload)
+	//
+	//fmt.Println(payload)
+	//if err != nil {
+	//	fmt.Println(err)
+	//	return
+	//}
+	//dataConvertedPhoneBook, err := json.Marshal(phoneBook)
+	//if err != nil {
+	//	fmt.Println(err)
+	//	return
+	//}
+	//log.Printf("Response phonebook: %+v", string(dataConvertedPhoneBook))
 
 }
