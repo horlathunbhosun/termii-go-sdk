@@ -6,15 +6,13 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
-	"os"
 	"time"
 )
 
 const (
 	defaultHttpTimeout = 60 * time.Second
+	baseUrl            = "https://api.ng.termii.com/api/"
 )
-
-var baseUrl = os.Getenv("TERMII_BASE_URL")
 
 // TermiiConfig holds Termii API configuration, including API key and base URL.
 type termiiServices struct {
@@ -60,6 +58,7 @@ func NewClient(apiKey string, httpClient *http.Client) *Client {
 	if httpClient == nil {
 		httpClient = &http.Client{Timeout: defaultHttpTimeout}
 	}
+
 	baseUrl, _ := url.Parse(baseUrl)
 	fmt.Println(baseUrl.String())
 	clientData := &Client{
@@ -102,12 +101,10 @@ func (clientVal *Client) MakeRequest(requestMethod string, data interface{}, url
 
 	// Perform the request
 	responseReceived, err := clientVal.client.Do(request)
-	//resp, err := http.Post(url, "application/json", bytes.NewBuffer(postData))
 	if err != nil {
 		return err, nil
 	}
 	var result map[string]interface{}
 	json.NewDecoder(responseReceived.Body).Decode(&result)
 	return nil, result
-
 }
